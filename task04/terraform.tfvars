@@ -1,0 +1,12 @@
+vm_password    = "YourSecurePassword@123"
+rg_name        = "cmtr-5f0gvlzp-mod4-rg"
+vnet_name      = "cmtr-5f0gvlzp-mod4-vnet"
+subnet_name    = "frontend"
+vm_name        = "cmtr-5f0gvlzp-mod4-vm"
+public_ip_name = "cmtr-5f0gvlzp-mod4-pip"
+dns_label      = "cmtr-5f0gvlzp-mod4-nginx"
+nsg_name       = "cmtr-5f0gvlzp-mod4-nsg"
+nic_name       = "cmtr-5f0gvlzp-mod4-nic"
+vm_sku         = "Standard_B2s"
+location       = "East US" # or the location of your RG
+admin_username = "azureuser"
