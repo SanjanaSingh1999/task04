@@ -9,7 +9,6 @@ nic_name               = "example-nic"
 vm_name                = "example-vm"
 vm_sku                 = "Standard_DS1_v2"
 admin_username         = "adminuser"
-vm_password            = "SecurePassword123!"
 creator_email          = "sanjana_singh1@epam.com"
 source_ip_addresses    = ["49.207.57.19", "18.153.146.156"]
 image_publisher        = "Canonical"
