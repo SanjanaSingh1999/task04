@@ -1,4 +1,3 @@
-vm_password    = "YourSecurePassword@123"
 rg_name        = "cmtr-5f0gvlzp-mod4-rg"
 vnet_name      = "cmtr-5f0gvlzp-mod4-vnet"
 subnet_name    = "frontend"
