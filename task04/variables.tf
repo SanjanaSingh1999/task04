@@ -56,6 +56,7 @@ variable "admin_username" {
 variable "vm_password" {
   description = "The password for the admin user"
   type        = string
+  sensitive   = true
 }
 
 variable "creator_email" {
