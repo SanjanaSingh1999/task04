@@ -11,3 +11,4 @@ location       = "East US" # or the location of your RG
 admin_username = "azureuser"
 AllowHTTP      = "AllowHTTP"
 AllowSSH       = "AllowSSH"
+creator_tag    = "sanjana_singh1@epam.com"
