@@ -1,75 +1,60 @@
-# Declare all variables for the Terraform script
-variable "rg_name" {
+variable "vm_password" {
+  description = "The admin password for the virtual machine"
   type        = string
-  description = "Name of the existing Resource Group"
+  sensitive   = true
 }
 
-variable "location" {
+variable "rg_name" {
+  description = "The name of the resource group"
   type        = string
-  description = "Azure region where the resources will be created"
 }
 
 variable "vnet_name" {
+  description = "The name of the virtual network"
   type        = string
-  description = "Name of the Virtual Network"
 }
 
 variable "subnet_name" {
+  description = "The name of the subnet"
   type        = string
-  description = "Name of the Subnet within the Virtual Network"
-}
-
-variable "public_ip_name" {
-  type        = string
-  description = "Name of the Public IP"
-}
-
-variable "dns_label" {
-  type        = string
-  description = "DNS label for the Public IP"
-}
-
-variable "nsg_name" {
-  type        = string
-  description = "Name of the Network Security Group"
-}
-
-variable "nic_name" {
-  type        = string
-  description = "Name of the Network Interface Card (NIC)"
 }
 
 variable "vm_name" {
+  description = "The name of the virtual machine"
   type        = string
-  description = "Name of the Virtual Machine"
+}
+
+variable "public_ip_name" {
+  description = "The name of the public IP address"
+  type        = string
+}
+
+variable "dns_label" {
+  description = "The DNS name label for the public IP"
+  type        = string
+}
+
+variable "nsg_name" {
+  description = "The name of the network security group"
+  type        = string
+}
+
+variable "nic_name" {
+  description = "The name of the network interface"
+  type        = string
 }
 
 variable "vm_sku" {
+  description = "The SKU for the Virtual Machine"
   type        = string
-  description = "SKU size for the Virtual Machine"
+}
+
+variable "location" {
+  description = "The Azure location for all resources"
+  type        = string
 }
 
 variable "admin_username" {
+  description = "The admin username for the virtual machine"
   type        = string
-  description = "Admin username for the Linux VM"
-}
-
-variable "vm_password" {
-  type        = string
-  description = "Password for the Linux VM admin user"
-}
-
-variable "creator_tag" {
-  type        = string
-  description = "Tag value for the creator of the resources"
-}
-
-variable "AllowHTTP" {
-  type        = string
-  description = "Name of the HTTP NSG rule"
-}
-
-variable "AllowSSH" {
-  type        = string
-  description = "Name of the SSH NSG rule"
 }
