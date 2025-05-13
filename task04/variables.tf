@@ -58,3 +58,18 @@ variable "admin_username" {
   description = "The admin username for the virtual machine"
   type        = string
 }
+
+variable "creator_tag" {
+  description = "The creator's email"
+  type        = string
+}
+
+variable "AllowHTTP" {
+  description = "The inbound rule for HTTP traffic"
+  type        = string
+}
+
+variable "AllowSSH" {
+  description = "The inbound rule for SSH traffic"
+  type        = string
+}
