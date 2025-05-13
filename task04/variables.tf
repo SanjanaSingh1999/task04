@@ -1,75 +1,107 @@
-variable "vm_password" {
-  description = "The admin password for the virtual machine"
-  type        = string
-  sensitive   = true
-}
-
 variable "rg_name" {
-  description = "The name of the resource group"
-  type        = string
-}
-
-variable "vnet_name" {
-  description = "The name of the virtual network"
-  type        = string
-}
-
-variable "subnet_name" {
-  description = "The name of the subnet"
-  type        = string
-}
-
-variable "vm_name" {
-  description = "The name of the virtual machine"
-  type        = string
-}
-
-variable "public_ip_name" {
-  description = "The name of the public IP address"
-  type        = string
-}
-
-variable "dns_label" {
-  description = "The DNS name label for the public IP"
-  type        = string
-}
-
-variable "nsg_name" {
-  description = "The name of the network security group"
-  type        = string
-}
-
-variable "nic_name" {
-  description = "The name of the network interface"
-  type        = string
-}
-
-variable "vm_sku" {
-  description = "The SKU for the Virtual Machine"
+  description = "The name of the Azure Resource Group"
   type        = string
 }
 
 variable "location" {
-  description = "The Azure location for all resources"
+  description = "The location of the Azure Resource Group"
+  type        = string
+}
+
+variable "vnet_name" {
+  description = "The name of the Azure Virtual Network"
+  type        = string
+}
+
+variable "subnet_name" {
+  description = "The name of the Azure Subnet"
+  type        = string
+}
+
+variable "public_ip_name" {
+  description = "The name of the Azure Public IP"
+  type        = string
+}
+
+variable "dns_label" {
+  description = "The DNS label for the Public IP"
+  type        = string
+}
+
+variable "nsg_name" {
+  description = "The name of the Azure Network Security Group"
+  type        = string
+}
+
+variable "nic_name" {
+  description = "The name of the Azure Network Interface"
+  type        = string
+}
+
+variable "vm_name" {
+  description = "The name of the Azure Virtual Machine"
+  type        = string
+}
+
+variable "vm_sku" {
+  description = "The SKU size of the Azure Virtual Machine"
   type        = string
 }
 
 variable "admin_username" {
-  description = "The admin username for the virtual machine"
+  description = "The admin username for the VM"
   type        = string
 }
 
-variable "creator_tag" {
-  description = "The creator's email"
+variable "vm_password" {
+  description = "The password for the admin user"
   type        = string
 }
 
-variable "AllowHTTP" {
-  description = "The inbound rule for HTTP traffic"
+variable "creator_email" {
+  description = "The creator's email address"
   type        = string
 }
 
-variable "AllowSSH" {
-  description = "The inbound rule for SSH traffic"
+variable "source_ip_addresses" {
+  description = "The allowed source IPs for security rules"
+  type        = list(string)
+}
+
+variable "image_publisher" {
+  description = "The publisher for the VM image"
   type        = string
+}
+
+variable "image_offer" {
+  description = "The offer for the VM image"
+  type        = string
+}
+
+variable "image_sku" {
+  description = "The SKU for the VM image"
+  type        = string
+}
+
+variable "image_version" {
+  description = "The version of the VM image"
+  type        = string
+}
+
+variable "storage_account_type" {
+  description = "The storage account type for the VM disk"
+  type        = string
+}
+
+# Adding rule names for HTTP and SSH
+variable "allow_http_rule_name" {
+  description = "The name for the HTTP security rule"
+  type        = string
+  default     = "AllowHTTP"
+}
+
+variable "allow_ssh_rule_name" {
+  description = "The name for the SSH security rule"
+  type        = string
+  default     = "AllowSSH"
 }
