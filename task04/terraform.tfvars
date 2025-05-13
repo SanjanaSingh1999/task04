@@ -9,3 +9,5 @@ nic_name       = "cmtr-5f0gvlzp-mod4-nic"
 vm_sku         = "Standard_B2s"
 location       = "East US" # or the location of your RG
 admin_username = "azureuser"
+AllowHTTP      = "AllowHTTP"
+AllowSSH       = "AllowSSH"
