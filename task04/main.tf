@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "this" {
   name     = var.rg_name
   location = var.location
   tags = {
-    Creator = var.creator_email
+    Creator = "sanjana_singh1@epam.com"
   }
 }
 
@@ -16,7 +16,7 @@ resource "azurerm_virtual_network" "this" {
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   tags = {
-    Creator = var.creator_email
+    Creator = "sanjana_singh1@epam.com"
   }
 }
 
@@ -35,7 +35,7 @@ resource "azurerm_public_ip" "this" {
   sku                 = "Basic"
   domain_name_label   = var.dns_label
   tags = {
-    Creator = var.creator_email
+    Creator = "sanjana_singh1@epam.com"
   }
 }
 
@@ -44,33 +44,33 @@ resource "azurerm_network_security_group" "this" {
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
   tags = {
-    Creator = var.creator_email
+    Creator = "sanjana_singh1@epam.com"
   }
 }
 
 resource "azurerm_network_security_rule" "allow_http" {
-  name                        = var.allow_http_rule_name
+  name                        = "AllowHTTP"
   priority                    = 1001
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
   destination_port_range      = "80"
-  source_address_prefixes     = var.source_ip_addresses
+  source_address_prefixes     = ["49.207.57.19", "18.153.146.156"]
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.this.name
   network_security_group_name = azurerm_network_security_group.this.name
 }
 
 resource "azurerm_network_security_rule" "allow_ssh" {
-  name                        = var.allow_ssh_rule_name
+  name                        = "AllowSSH"
   priority                    = 1002
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
   destination_port_range      = "22"
-  source_address_prefixes     = var.source_ip_addresses
+  source_address_prefixes     = ["49.207.57.19", "18.153.146.156"]
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.this.name
   network_security_group_name = azurerm_network_security_group.this.name
@@ -89,7 +89,7 @@ resource "azurerm_network_interface" "this" {
   }
 
   tags = {
-    Creator = var.creator_email
+    Creator = "sanjana_singh1@epam.com"
   }
 }
 
@@ -109,22 +109,22 @@ resource "azurerm_linux_virtual_machine" "this" {
   network_interface_ids           = [azurerm_network_interface.this.id]
 
   source_image_reference {
-    publisher = var.image_publisher
-    offer     = var.image_offer
-    sku       = var.image_sku
-    version   = var.image_version
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "24_04-lts"
+    version   = "latest"
   }
 
   os_disk {
     caching              = "ReadWrite"
-    storage_account_type = var.storage_account_type
+    storage_account_type = "Standard_LRS"
     name                 = "${var.vm_name}-osdisk"
   }
 
   computer_name = var.vm_name
 
   tags = {
-    Creator = var.creator_email
+    Creator = "sanjana_singh1@epam.com"
   }
 
   provisioner "remote-exec" {
